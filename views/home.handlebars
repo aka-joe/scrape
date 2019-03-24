@@ -1,0 +1,40 @@
+<!--Homepage-->
+<div class="container">
+    <div class="col-md-12 jumbotron">
+        <div class="text-center">
+            <h1>League of Legends</h1>
+            <h1>Article Scraper</h1>
+        </div>
+
+    </div>
+    <div class="row">
+        {{#if article}}
+        {{#each article}}
+        <div class="col-md-4">
+            <div class="panel panel-default" style="height:270px;">
+                <div class="panel-heading">
+                    <a href={{this.link}} target="_blank">
+                        <h4>{{this.title}}</h4>
+                    </a>
+                </div>
+                <div class="panel-body">
+                    <a href={{this.link}} target="_blank"><img src={{this.image}}
+                            style="margin-right: 10px; float:left; max-width:150px; max-height:150px;">
+                        <p>{{this.summary}}</p>
+                    </a>
+                    <br>
+                    <button style="position:absolute; left:31px; bottom:34px;" class="btn btn-danger save"
+                        data-id={{this._id}}>Save Article</button>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+        {{else}}
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h4>Uh Oh. Looks like we don't have any new articles.</h4>
+            </div>
+        </div>
+        {{/if}}
+    </div>
+</div>
